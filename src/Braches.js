@@ -71,18 +71,16 @@ const Breaches = () => {
   };
 
   React.useEffect(() => {
-    const lastBrcClickedNum = parseInt(
-      localStorage.getItem("IndexLastBrcClicked")
-    );
+    const lastBrcClickedNum =
+      parseInt(localStorage.getItem("IndexLastBrcClicked")) || 0;
     if (lastBrcClickedNum > pager.page) {
       pagerDispatch({ type: "ADVANCE_PAGE" });
     }
   }, [pager.page]);
   const [toScroll, setToScroll] = useState(true);
   React.useEffect(() => {
-    const lastBrcClickedNum = parseInt(
-      localStorage.getItem("IndexLastBrcClicked")
-    );
+    const lastBrcClickedNum =
+      parseInt(localStorage.getItem("IndexLastBrcClicked")) || 0;
 
     if (hashRef[lastBrcClickedNum] && toScroll) {
       setToScroll(false);
